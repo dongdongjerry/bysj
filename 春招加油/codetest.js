@@ -1,4 +1,9 @@
-let arr1 =  ['1',2,3,4,5];
-console.log(arr1.toString())
-console.log(arr1.toLocaleString())
-console.log(arr1.valueOf());
+function timeout(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms, 'done');
+    });
+}
+
+timeout(100).then((value) => {
+    console.log(value);
+});
