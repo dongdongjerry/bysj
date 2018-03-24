@@ -7,30 +7,47 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state:{
-    type: '',
-  },
-  getters:{
-    getType:function (state) {
-      if(!state.type){
-        state.type = localStorage.getItem('type')
+  // 站点json数据树
+  /*
+    state: {
+      gid: 编号
+      name: 站点名称
+      config: {站点配置}
+      children: [// 站点内容
+        {
+          type: paragraph // 类型
+          content: url || string //内容，放文字或者图片url
+          config: {
+            // 样式
+            class: class样式,
+            color: 字体颜色
+          }
+        }
+      ]
+    }
+  */
+  state: {
+    gid: 1000,
+    site: {
+      name: 'awesome site',
+      config: {},
+      children: []
+    },
+    currentPage: {},
+    widgets: [{
+      name: '一段文字',
+      icon: '',
+      placeholder: {
+        type: 'paragraph',
+        content: {
+          title: '标题',
+          subTitle: '小标题',
+          detail: '内容。。。'
+        },
+        config: {}
       }
-      return state.type;
-    }
-  },
-  mutations:{
-    //格式：类型(名字)+处理函数
-    //加1
-    changetype(state,type) {
-      //console.log(state)//state对象
-      state.type = type;
-    }
-  },
-  actions:{
-    /* increment({commit}){
-       commit("INCREMENT")
-     }*/
+    }]
   }
-})
+});
 
 export default store

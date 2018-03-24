@@ -1,9 +1,9 @@
 <template>
   <div class="nav">
     <div class="button-list">
-      <el-button type="info"><i class="el-icon-view"></i>&nbsp;预览</el-button>
-      <el-button type="info"><i class="el-icon-document"></i>&nbsp;保存</el-button>
-      <el-button type="info"><i class="el-icon-share"></i>&nbsp;分享</el-button>
+      <el-button type="info" size="small" icon="el-icon-view">预览</el-button>
+      <el-button type="info" size="small" icon="el-icon-document">保存</el-button>
+      <el-button type="info" size="small" icon="el-icon-share">分享</el-button>
     </div>
 
   </div>
@@ -19,7 +19,7 @@
   .nav {
     height: 50px;
     width: 100%;
-    background: #333333;
+    background: #353535;
     .button-list{
       float: right;
       padding-right: 10px;
