@@ -1,6 +1,6 @@
 <template>
   <div class="preview">
-    <draggable :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
+    <draggable :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" @add="onAdd">
       <transition-group type="transition">
         <div v-for="item in items" :key="item.key">
           <p>{{item.name}}</p>
@@ -48,6 +48,9 @@
         const relatedElement = relatedContext.element;
         const draggedElement = draggedContext.element;
         return (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
+      },
+      onAdd ({ item, newIndex }){
+        console.log(item.getAttribute('type'));
       }
     }
   }
@@ -59,5 +62,6 @@
     cursor: move;
     float: left;
     background-color: olivedrab;
+    z-index: 9;
   }
 </style>

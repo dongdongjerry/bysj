@@ -2,11 +2,9 @@
     <div>
       <topNav></topNav>
       <elements :show="true"></elements>
-      <!--<el-row>
-        <el-col :span="5" class="row-c row1"></el-col>
-        <el-col :span="14" class="row-c row2"><preview></preview></el-col>
-        <el-col :span="5" class="row-c row3"><div class="grid-content bg-purple"></div></el-col>
-      </el-row>-->
+      <el-row>
+        <el-col :span="24" class="row-c row2"><preview></preview></el-col>
+      </el-row>
     </div>
 </template>
 
