@@ -1,6 +1,6 @@
 <template>
   <div class="preview">
-    <draggable :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" @add="onAdd">
+    <draggable :options="dragOptions"  @add="onAdd">
       <transition-group type="transition">
         <div v-for="item in items" :key="item.key">
           <p>{{item.name}}</p>
@@ -51,6 +51,7 @@
       },
       onAdd ({ item, newIndex }){
         console.log(item.getAttribute('type'));
+        item.parentElement.removeChild(item)
       }
     }
   }
