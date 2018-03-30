@@ -2,14 +2,16 @@
     <div class="elements">
       <el-tabs tab-position="left" style="height: 100%;">
         <el-tab-pane label="基础组件">
-          <draggable :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="move-cursor">
+          <div>
             <h4 slot="">布局</h4>
-            <transition-group type="transition">
-              <div v-for="item in items" :key="item.type" :type="item.type">
-                <p>{{item.name}}</p>
-              </div>
-            </transition-group>
-          </draggable>
+            <draggable :options="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" class="move-cursor">
+              <transition-group type="transition">
+                <div v-for="item in items" :key="item.type" :type="item.type">
+                  <p>{{item.name}}</p>
+                </div>
+              </transition-group>
+            </draggable>
+          </div>
         </el-tab-pane>
         <el-tab-pane label="基础图文">基础图文</el-tab-pane>
       </el-tabs>

@@ -1,11 +1,12 @@
 <template>
   <div class="preview">
     <draggable :options="dragOptions"  @add="onAdd">
-      <transition-group type="transition">
+      <!--<transition-group type="transition">
         <div v-for="item in items" :key="item.key">
           <p>{{item.name}}</p>
         </div>
-      </transition-group>
+      </transition-group>-->
+      <slot></slot>
     </draggable>
   </div>
 </template>
@@ -17,6 +18,7 @@
     components:{
       Draggable
     },
+    props: ['node'],
     data () {
       return {
         editable:true,
@@ -50,7 +52,6 @@
         return (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
       },
       onAdd ({ item, newIndex }){
-        console.log(item.getAttribute('type'));
         item.parentElement.removeChild(item)
       }
     }

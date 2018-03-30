@@ -47,6 +47,9 @@ const store = new Vuex.Store({
         config: {}
       }
     }]
+  },
+  mutations: {
+    addWidgets() {}
   }
 });
 

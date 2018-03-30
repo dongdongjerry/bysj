@@ -3,7 +3,9 @@
       <topNav></topNav>
       <elements :show="true"></elements>
       <el-row>
-        <el-col :span="24" class="row-c row2"><preview></preview></el-col>
+        <el-col :span="24" class="row-c row2">
+          <render :node="node"></render>
+          </el-col>
       </el-row>
     </div>
 </template>
@@ -12,12 +14,37 @@
   import topNav from './topNav'
   import elements from './elements'
   import preview from './preview'
+  import render from './render'
+  import { mapState, mapActions } from 'vuex'
   export default {
     name: "container",
     components: {
       topNav,
       elements,
-      preview
+      preview,
+      render
+    },
+    data() {
+      return {
+        node: {
+          type: 'site',
+          name: 'lego site',
+          children: [
+            {
+              type: 'preview',
+              children: [
+                {
+                  type: 'paragraph',
+                  title: '测试'
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    computed: {
+      ...mapState(['site','currentPage','widgets'])
     }
   }
 </script>
